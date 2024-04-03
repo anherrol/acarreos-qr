@@ -40,7 +40,9 @@ if (!previousLoading) {
         if (urlParams.has('p')) {
             $("#plates").val(urlParams.get('p'));
             
-            $("#data-placas").hide();
+            $("#div-placas").hide();
+            
+            $("#data-placas").text(urlParams.get('p'));
 
             loadData();
         } else {
@@ -55,8 +57,12 @@ if (!previousLoading) {
     }
 
     async function loadData() {
+
+
+        /*
         var catalogsProxy = new CatalogsProxy();
 
         catalogsProxy.getData()
+        */
     }
 }
