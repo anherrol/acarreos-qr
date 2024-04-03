@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link rel="shortcut icon" href="img/icons/mstile-150x150.png" />
+
+    <title>Identificación de unidad</title>
+
+    <link href="css/app.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div class="main">
+        <main class="content">
+          <div class="container-fluid p-0">
+            <div class="mb-3">
+              <h1 class="h3 d-inline align-middle">Padrón de unidades</h1>
+            </div>
+            <div class="row">
+              <div class="col-md-4 col-xl-3">
+                <div class="card mb-3">
+                  <div class="card-header">
+                    <h5 class="card-title mb-0">Descripción de la unidad</h5>
+                  </div>
+                  <div class="card-body text-center">
+                    <img id="truck-image" src="img/truck-image.jpg" alt="Truck Image" 
+                      class="img-fluid rounded-circle mb-2" width="256" height="256" />
+                    <h5 class="card-title mb-0">
+                      <span id="data-placas"></span>
+                    </h5>
+                    <div class="text-muted mb-2">
+                      <span id="data-chofer"></span>
+                    </div>
+                  </div>
+                  <hr class="my-0" />
+                  <hr class="my-0" />
+                  <div class="card-body">
+                    <h5 class="h6 card-title">Información de la unidad</h5>
+                    <ul class="list-unstyled mb-0">
+                      <li class="mb-1">
+                        <span data-feather="transportista" class="feather-sm me-1"></span>
+                        Propietario: <span id="data-transportista"></span>
+                      </li>
+                      <li class="mb-1">
+                        <span data-feather="largo" class="feather-sm me-1"></span>
+                        Largo: <span id="data-largo"></span>
+                      </li>
+                      <li class="mb-1">
+                        <span data-feather="ancho" class="feather-sm me-1"></span>
+                        Ancho: <span id="data-ancho"></span>
+                      </li>
+                    </ul>
+                  </div>
+                  <hr class="my-0" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+        <footer class="footer">
+          <div class="container-fluid">
+            <div class="row text-muted">
+              <div class="col-6 text-start">
+                <p class="mb-0">
+                  <a class="text-muted" href="https://tmaya.mx/" target="_blank">
+                    <strong>Tren Maya</strong> &copy;2024
+                  </a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </div>
+    <script src="js/jquery-3.7.0.min.js"></script>
+    <script src="js/dexie.min.js"></script>
+    <script type="module" src="js/main.js"></script>
+  </body>
+</html>
