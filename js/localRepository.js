@@ -1,5 +1,5 @@
 export function LocalRepository () {
-    const DB_NAME = "acarreos-local-db";
+    const DB_NAME = "acarreos-qr-db";
     
     var db = new Dexie(DB_NAME);
 
