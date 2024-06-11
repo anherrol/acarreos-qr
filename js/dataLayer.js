@@ -3,8 +3,8 @@ import { LocalRepository } from "./localRepository.js";
 
 if (typeof BASE_API_URL === 'undefined' || typeof ajaxService === 'undefined') {
     // var BASE_API_URL = 'http://acarreosapi.local/api/';
-    var BASE_API_URL = 'https://localhost:7065/api/'; 
-    //var BASE_API_URL = 'https://acarreosmobileapi.azurewebsites.net/api/';
+    //var BASE_API_URL = 'https://localhost:7065/api/'; 
+    var BASE_API_URL = 'https://acarreosmobileapi.azurewebsites.net/api/';
 }
 
 export class AuthProxy {
