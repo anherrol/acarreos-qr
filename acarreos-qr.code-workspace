@@ -1,0 +1,11 @@
+{
+	"folders": [
+		{
+			"name": "acarreos-qr",
+			"path": "."
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "acarreos-qr"
+	}
+}

@@ -1,4 +1,4 @@
-import { AuthProxy, CatalogsProxy } from "./dataLayer.js";
+import { AuthProxy, QrsProxy } from "./dataLayer.js";
 
 if (!previousLoading) {
     var previousLoading = true;
@@ -31,7 +31,7 @@ if (!previousLoading) {
             
             $("#data-placas").text(urlParams.get('p'));
 
-            loadData();
+            loadData($("#data-placas").text());
         } else {
             console.log('No hay una placa a identificar.');
 
@@ -43,13 +43,16 @@ if (!previousLoading) {
         lista.value = '';
     }
 
-    async function loadData() {
+    async function loadData(plates) {
+        var qrsProxy = new QrsProxy();
 
-
-        /*
-        var catalogsProxy = new CatalogsProxy();
-
-        catalogsProxy.getData()
-        */
+        qrsProxy.getUnitInfo(
+            plates, 
+            (data) => {
+                console.log(data);
+                $("#data-placas").text(data.plates);
+                $("#data-transportista").text(data.carrier);
+                $('#truck-image').attr('src','https://localhost:7065/api/files/download?fileName=' + data.plates + '.JPEG');
+            });
     }
 }

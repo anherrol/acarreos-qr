@@ -1,5 +1,5 @@
 export function LocalRepository () {
-    const DB_NAME = "acarreos-local-db";
+    const DB_NAME = "acarreos-unit-seeker-db";
     
     var db = new Dexie(DB_NAME);
 
@@ -15,14 +15,9 @@ export function LocalRepository () {
 
     // Define a schema
     db.version(1.4).stores({
-            trucks: 'id, qrcode, description', 
-            drivers: 'id, qrcode, description', 
-            gondolas: 'id, qrcode, description', 
-            operators: 'id, qrcode, description', 
-            parameters: 'id, value', 
-            jobplaces: 'id, nombre, prefijoBoletas, lugarOrigen, numeroFrente, numeroLote, esMina', 
-            logentries: '++logId, logEntry, logDate, entryType'
-        });
+        parameters: 'id, value', 
+        logentries: 'logId'
+    });
 
     // Open the database
     db.open()
