@@ -52,7 +52,7 @@ if (!previousLoading) {
                 console.log(data);
                 $("#data-placas").text(data.plates);
                 $("#data-transportista").text(data.carrier);
-                $('#truck-image').attr('src','https://localhost:7065/api/files/download?fileName=' + data.plates + '.JPEG');
+                $('#truck-image').attr('src','https://acarreosmobileapi.azurewebsites.net/api/files/download?fileName=' + data.plates + '.JPEG');
             });
     }
 }
