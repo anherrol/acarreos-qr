@@ -51,8 +51,37 @@ if (!previousLoading) {
             (data) => {
                 console.log(data);
                 $("#data-placas").text(data.plates);
+                $("#data-economical").text(data.economicalNumber);
                 $("#data-transportista").text(data.carrier);
                 $('#truck-image').attr('src','https://acarreosmobileapi.azurewebsites.net/api/files/download?fileName=' + data.plates + '.JPEG');
             });
+
+        qrsProxy.getHaulingInfo(
+            plates, 
+            (data) => {
+                console.log(data);
+
+                if (data.ticketId > 0) {
+                    $("#hauling-data-div").show();
+                    $("#data-ticket-id").text(data.ticketId);
+
+                    const event = new Date(data.departureDate);
+                    const options = {
+                        year: 'numeric',
+                        month: 'short',
+                        day: 'numeric',
+                    };
+                    $("#data-departure-date").text(event.toLocaleDateString('es-MX', options));
+
+                    $('#gondola-one-image').attr('src','https://acarreosmobileapi.azurewebsites.net/api/files/download?fileName=' + data.gondolaOne + '.JPEG');
+                    $("#data-placas-gondola-one").text(data.gondolaOne);
+
+                    $('#gondola-two-image').attr('src','https://acarreosmobileapi.azurewebsites.net/api/files/download?fileName=' + data.gondolaTwo + '.JPEG');
+                    $("#data-placas-gondola-two").text(data.gondolaTwo);
+                } else {
+                    $("#hauling-data-div").hide();
+                }
+            }
+        )
     }
 }

@@ -3,8 +3,8 @@ import { LocalRepository } from "./localRepository.js";
 
 if (typeof BASE_API_URL === 'undefined' || typeof ajaxService === 'undefined') {
     // var BASE_API_URL = 'http://acarreosapi.local/api/';
-    //var BASE_API_URL = 'https://localhost:7065/api/'; 
-    var BASE_API_URL = 'https://acarreosmobileapi.azurewebsites.net/api/';
+    var BASE_API_URL = 'https://localhost:7065/api/'; 
+    //var BASE_API_URL = 'https://acarreosmobileapi.azurewebsites.net/api/';
 }
 
 export class AuthProxy {
@@ -110,13 +110,13 @@ export class CatalogsProxy {
 
 export class QrsProxy {
     constructor() {
-        this.service = 'qrcodes/unitinfo';
+        this.service = 'qrcodes/';
         this.ajaxService = new ServiceProxy(BASE_API_URL);
 
         // entity recovery
         this.getUnitInfo = function (plates, successCallBack) {
             this.ajaxService.callGetService(
-                this.service + '/' + plates,
+                this.service + 'unitinfo/' + plates,
                 null,
                 successCallBack,
                 (jqXhr, textStatus, errorMessage) => {
@@ -124,6 +124,17 @@ export class QrsProxy {
                 }
             );
         };
+
+        this.getHaulingInfo = function(plates, successCallBack) {
+            this.ajaxService.callGetService(
+                this.service + 'lastHauling/' + plates,
+                null,
+                successCallBack,
+                (jqXhr, textStatus, errorMessage) => {
+                    $("#error").html(`Error${errorMessage}`);
+                }
+            );
+        }
     }
 }
 
